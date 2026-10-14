@@ -3,88 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#11100c">
-  <meta name="description" content="Cafe Teaniru — tea, snacks, and good vibes at our cozy wooden hut cafe.">
-  <title>Cafe Teaniru | Wooden Hut Cafe</title>
+  <meta name="theme-color" content="#0b3a2e">
+  <meta name="description" content="Cafe Teaniru — stylish bamboo-hut small model cafe serving tea, snacks, and good vibes.">
+  <title>Cafe Teaniru | Bamboo Hut Cafe</title>
   <style>
-    :root{--yellow:#ffd12e;--ink:#11100c;--cream:#fff7df;--brown:#3b2113;--muted:#786047;--black:#0c0c0c}
+    :root{--bamboo:#8fbf7f;--accent:#6aa66a;--ink:#0d2218;--cream:#fbf7ef;--brown:#3b2113;--muted:#7b6a5a;--black:#0c0c0c}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:82px}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,var(--cream),#fff);color:var(--ink);line-height:1.55}
     a{color:inherit;text-decoration:none}
     img{display:block;width:100%;object-fit:cover}
     .wrap{width:min(1200px,92%);margin:auto}
-    .topbar{position:sticky;top:0;z-index:20;background:rgba(12,12,12,.98);color:#fff;border-bottom:1px solid #ffffff14}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(13,34,24,.95);color:#fff;border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:blur(6px)}
     .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}
     .brand{font-weight:900;font-size:25px;line-height:1.05;letter-spacing:.5px;white-space:nowrap}
-    .brand .gold{color:var(--yellow)}
-    .brand small{display:block;font-size:9px;letter-spacing:2px;font-weight:600;margin-top:7px;color:#e7dfcf}
+    .brand .gold{color:var(--bamboo)}
+    .brand small{display:block;font-size:10px;letter-spacing:1.5px;font-weight:600;margin-top:7px;color:#dfe9df}
     .links{display:flex;align-items:center;gap:24px;font-size:13px;font-weight:700}
-    .links a:hover{color:var(--yellow)}
-    .pill{display:inline-flex;justify-content:center;align-items:center;gap:8px;background:var(--yellow);color:#17130a;padding:12px 18px;border-radius:28px;font-weight:800;font-size:13px;border:0}
-    .hero{min-height:525px;color:white;display:flex;align-items:center;background:linear-gradient(90deg,rgba(12,12,12,.88) 0%,rgba(12,12,12,.60) 45%,rgba(12,12,12,.18) 100%),url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=85') no-repeat center/cover}
-    .hero-inner{padding:75px 0;max-width:670px}
-    .eyebrow{font-size:11px;font-weight:900;letter-spacing:2px;color:var(--yellow);text-transform:uppercase}
-    h1{font-size:clamp(42px,6vw,76px);line-height:1.02;letter-spacing:-1.5px;margin:17px 0}
-    h1 span,.gold{color:var(--yellow)}
-    .hero p{max-width:540px;font-size:17px;color:#f6f0e8}
+    .links a:hover{color:var(--bamboo)}
+    .pill{display:inline-flex;justify-content:center;align-items:center;gap:8px;background:var(--bamboo);color:#072016;padding:12px 18px;border-radius:28px;font-weight:800;font-size:13px;border:0;box-shadow:0 6px 18px rgba(48,84,58,0.12)}
+    .hero{min-height:560px;color:white;display:flex;align-items:center;background:linear-gradient(90deg,rgba(6,15,12,.88) 0%,rgba(6,15,12,.55) 45%,rgba(6,15,12,.12) 100%),url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1650&q=80');background-size:cover;background-position:center}
+    .hero-inner{padding:85px 0;max-width:720px}
+    .eyebrow{font-size:11px;font-weight:900;letter-spacing:2px;color:var(--bamboo);text-transform:uppercase}
+    h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-1.2px;margin:17px 0;font-family:Georgia,serif}
+    h1 span,.gold{color:var(--bamboo)}
+    .hero p{max-width:560px;font-size:17px;color:#eef6ee}
     .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:26px}
-    .outline{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border:1px solid var(--yellow);border-radius:28px;color:#fff;font-size:13px;font-weight:800}
-    .benefits{background:#0c0c0c;color:#fff;padding:22px 0}
+    .outline{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border:1px solid var(--bamboo);border-radius:28px;color:#fff;font-size:13px;font-weight:800;background:transparent}
+    .benefits{background:linear-gradient(180deg,#0b291d,#072016);color:#fff;padding:22px 0}
     .benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
     .benefit{display:flex;align-items:center;gap:12px}
-    .benefit-icon{width:44px;height:44px;border:1.5px solid var(--yellow);border-radius:50%;display:grid;place-items:center;color:var(--yellow);font-size:20px;flex:none}
-    .benefit b{display:block;font-size:11px;text-transform:uppercase}
-    .benefit small{display:block;color:#d4cabb;font-size:10px;margin-top:3px}
+    .benefit-icon{width:48px;height:48px;border:1.5px solid var(--bamboo);border-radius:50%;display:grid;place-items:center;color:var(--bamboo);font-size:20px;flex:none;background:rgba(255,255,255,0.02)}
+    .benefit b{display:block;font-size:12px;text-transform:uppercase}
+    .benefit small{display:block;color:#d4e9d7;font-size:11px;margin-top:4px}
     section{padding:58px 0}
     .section-head{text-align:center;margin-bottom:27px}
-    .section-head .eyebrow{color:#9b6b00}
+    .section-head .eyebrow{color:var(--accent)}
     h2{font-size:clamp(28px,4vw,42px);line-height:1.12;margin:8px 0}
     .section-head p{margin:7px 0;color:var(--muted);font-size:14px}
     .menu-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
-    .menu-card{background:#fff;border-radius:9px;overflow:hidden;box-shadow:0 5px 18px #3b260e0d}
+    .menu-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(59,38,14,0.06);transition:transform .18s}
+    .menu-card:hover{transform:translateY(-6px)}
     .menu-card img{height:150px}
-    .menu-copy{text-align:center;padding:12px 8px 15px}
-    .menu-copy h3{font-size:13px;margin:0 0 3px}
+    .menu-copy{text-align:center;padding:12px 8px 18px}
+    .menu-copy h3{font-size:13px;margin:0 0 4px}
     .menu-copy p{font-size:11px;color:var(--muted);margin:0}
-    .price{color:#a36d00;font-size:12px;font-weight:800;margin-top:6px}
-    .about{background:#0c0c0c;color:#fff;padding:0}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;min-height:420px}
-    .about-photo{height:100%;min-height:420px}
+    .price{color:var(--brown);font-size:12px;font-weight:800;margin-top:6px}
+    .about{background:linear-gradient(180deg,#e9f6ea,#f9f8f5);color:var(--ink);padding:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;min-height:420px;align-items:stretch}
+    .about-photo{height:100%;min-height:420px;border-right:12px solid rgba(0,0,0,0.03)}
     .about-copy{padding:55px clamp(25px,5vw,70px);align-self:center}
-    .about-copy .eyebrow{color:var(--yellow)}
-    .about-copy p{font-size:14px;color:#e2d9c9}
+    .about-copy .eyebrow{color:var(--bamboo)}
+    .about-copy p{font-size:14px;color:#3b3b36}
     .values{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:25px;text-align:center}
-    .value-icon{border:1px solid var(--yellow);border-radius:50%;width:42px;height:42px;margin:0 auto 8px;display:grid;place-items:center;color:var(--yellow);font-size:19px}
-    .values b{font-size:10px;display:block}
+    .value-icon{border:1px solid var(--bamboo);border-radius:50%;width:46px;height:46px;margin:0 auto 8px;display:grid;place-items:center;color:var(--bamboo);font-size:19px}
+    .values b{font-size:11px;display:block}
     .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .gallery-grid img{height:235px;border-radius:10px}
-    .visit{background:#f5e7ce}
+    .gallery-grid img{height:235px;border-radius:10px;box-shadow:0 8px 18px rgba(0,0,0,0.06)}
+    .visit{background:linear-gradient(180deg,#f7f6f1,#fff)}
     .visit-grid{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:18px;align-items:stretch}
     .visit-copy{padding:10px 0}
     .visit-copy p{font-size:14px;color:#544734}
-    .visit-photo{height:100%;min-height:300px;border-radius:10px}
-    .details{background:#fff9ef;border-radius:10px;padding:20px}
+    .visit-photo{height:100%;min-height:300px;border-radius:10px;object-position:center}
+    .details{background:#fff9ef;border-radius:10px;padding:20px;box-shadow:0 8px 30px rgba(59,38,14,0.06)}
     .detail-row{display:flex;gap:12px;margin-bottom:16px}
     .detail-row:last-child{margin-bottom:0}
     .detail-icon{font-size:20px}
     .detail-row b{display:block;font-size:13px}
     .detail-row span{display:block;font-size:12px;color:#6a5a45}
-    .map-link{display:block;background:#e6ddcc;text-align:center;border-radius:7px;padding:20px 10px;color:#4d402f;font-size:13px;font-weight:bold;margin-top:12px}
-    footer{background:#0c0c0c;color:#fff;padding:32px 0}
+    .map-link{display:block;background:var(--bamboo);text-align:center;border-radius:7px;padding:16px 10px;color:#072016;font-size:13px;font-weight:bold;margin-top:12px}
+    footer{background:#0b291d;color:#fff;padding:36px 0}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-    .tagline{font-family:Georgia,serif;font-style:italic;font-size:clamp(19px,3vw,28px);text-align:center;color:#f7e8c7}
+    .tagline{font-family:Georgia,serif;font-style:italic;font-size:clamp(18px,3vw,26px);text-align:center;color:#e8f6ea}
     .footer-links{display:flex;gap:13px;flex-wrap:wrap;font-size:12px}
-    .copyright{font-size:11px;color:#c9c0b2;text-align:center;margin-top:20px}
-    .whatsapp{position:fixed;right:17px;bottom:17px;z-index:25;background:#0c0c0c;color:#fff;border:1px solid var(--yellow);border-radius:28px;padding:13px 17px;font-size:13px;font-weight:800;box-shadow:0 5px 20px #0003}
-    @media(max-width:950px){.links{gap:12px}.links a:not(.pill){display:none}.menu-grid{grid-template-columns:repeat(3,1fr)}.visit-grid{grid-template-columns:1fr 1fr}.visit-copy{grid-column:1/-1}.visit-photo{grid-column:1 / -1}.about-grid{grid-template-columns:1fr}.about-photo{min-height:300px}.hero{background-position:center}.brand{font-size:22px}}
-    @media(max-width:650px){.nav{padding:12px 0;min-height:unset;flex-wrap:wrap;justify-content:center}.links{width:100%;justify-content:center}.links a:not(.pill){display:inline}.links a{font-size:12px}.menu-grid{grid-template-columns:repeat(2,1fr)}.values{grid-template-columns:repeat(2,1fr)}.benefit-grid{grid-template-columns:1fr 1fr}.visit-grid{grid-template-columns:1fr}.hero-inner{padding:55px 0}.h1{font-size:42px}}
+    .copyright{font-size:11px;color:#c9d8cc;text-align:center;margin-top:20px}
+    .whatsapp{position:fixed;right:17px;bottom:17px;z-index:25;background:var(--bamboo);color:#072016;border-radius:28px;padding:13px 17px;font-size:13px;font-weight:800;box-shadow:0 8px 22px rgba(29,78,48,0.18)}
+    @media(max-width:950px){.links{gap:12px}.links a:not(.pill){display:none}.menu-grid{grid-template-columns:repeat(3,1fr)}.visit-grid{grid-template-columns:1fr 1fr}.visit-copy{grid-column:1/-1}}
+    @media(max-width:650px){.nav{padding:12px 0;min-height:unset;flex-wrap:wrap;justify-content:center}.links{width:100%;justify-content:center}.links a:not(.pill){display:inline}.links a{font-size:12px}.about-grid{grid-template-columns:1fr}.menu-grid{grid-template-columns:repeat(2,1fr)}.menu-card img{height:140px}}
   </style>
 </head>
 <body>
 <header class="topbar">
   <div class="wrap nav">
-    <a class="brand" href="#home">☕ CAFE <span class="gold">TEANIRU</span><small>TEA • SNACKS • GOOD VIBES</small></a>
+    <a class="brand" href="#home">☕ CAFE <span class="gold">TEANIRU</span><small>BAMBOO HUT · SMALL HUT MODEL CAFE</small></a>
     <nav class="links" aria-label="Main navigation">
       <a href="#home">Home</a><a href="#about">About Us</a><a href="#menu">Menu</a><a href="#cafe">Our Cafe</a><a href="#gallery">Gallery</a><a href="#visit">Contact</a>
       <a class="pill" href="#visit">⌖ Visit Our Cafe</a>
@@ -96,9 +97,9 @@
   <section class="hero" id="home">
     <div class="wrap">
       <div class="hero-inner">
-        <div class="eyebrow">Welcome to our wooden hut cafe</div>
-        <h1>A FRESH CUP.<br><span>A FRESH START.</span></h1>
-        <p>Freshly brewed tea, tasty snacks and a cozy hut ambience made for friends, family and great conversations.</p>
+        <div class="eyebrow">Handcrafted bamboo hut cafe</div>
+        <h1>BAMBOO HUT STYLE.<br><span>SMALL HUT MODEL CAFE.</span></h1>
+        <p>Experience a stylish bamboo-hut ambiance with freshly brewed tea, tasty snacks and warm hospitality — a small hut model cafe designed for intimate conversations.</p>
         <div class="actions">
           <a class="pill" href="#menu">☕ Explore Menu</a>
           <a class="outline" href="#visit">⌖ Visit Our Cafe</a>
@@ -109,10 +110,10 @@
 
   <div class="benefits">
     <div class="wrap benefit-grid">
-      <div class="benefit"><div class="benefit-icon">♧</div><div><b>Fresh Tea Leaves</b><small>Rich taste, freshly made</small></div></div>
-      <div class="benefit"><div class="benefit-icon">☕</div><div><b>Made with Care</b><small>Clean and welcoming</small></div></div>
-      <div class="benefit"><div class="benefit-icon">♥</div><div><b>Cozy Hut Ambience</b><small>Relax with your people</small></div></div>
-      <div class="benefit"><div class="benefit-icon">♧</div><div><b>Good for Everyone</b><small>Great taste, good vibes</small></div></div>
+      <div class="benefit"><div class="benefit-icon">♧</div><div><b>Bamboo Ambience</b><small>Natural & cozy design</small></div></div>
+      <div class="benefit"><div class="benefit-icon">☕</div><div><b>Artisan Tea</b><small>Freshly brewed with care</small></div></div>
+      <div class="benefit"><div class="benefit-icon">♥</div><div><b>Intimate Setting</b><small>Small hut model for gatherings</small></div></div>
+      <div class="benefit"><div class="benefit-icon">♧</div><div><b>Sustainable</b><small>Local materials & mindful practices</small></div></div>
     </div>
   </div>
 
@@ -120,29 +121,29 @@
     <div class="wrap">
       <div class="section-head"><div class="eyebrow">— Our Menu —</div><h2>TEA, SNACKS <span class="gold">&amp;</span> MORE</h2><p>Tradition in every sip, freshness in every bite.</p></div>
       <div class="menu-grid">
-        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=700&q=85" alt="A cup of hot tea"><div class="menu-copy"><h3>Classic Tea</h3><p>Simple, comforting</p><div class="price">₹40</div></div></article>
-        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=700&q=85" alt="Ginger tea"><div class="menu-copy"><h3>Ginger Tea</h3><p>Warm and spicy</p><div class="price">₹50</div></div></article>
-        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=85" alt="Special tea in a cup"><div class="menu-copy"><h3>Masala Tea</h3><p>Rich and aromatic</p><div class="price">₹55</div></div></article>
-        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=85" alt="Fresh coffee"><div class="menu-copy"><h3>Coffee</h3><p>For coffee lovers</p><div class="price">₹60</div></div></article>
-        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=85" alt="Indian snacks"><div class="menu-copy"><h3>Snacks</h3><p>Freshly prepared</p><div class="price">₹80</div></div></article>
-        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=85" alt="Chocolate milkshake"><div class="menu-copy"><h3>Milkshakes</h3><p>Cool and creamy</p><div class="price">₹120</div></div></article>
+        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=700&q=85" alt="A cup of hot tea"><div class="menu-copy"><h3>Classic Chai</h3><p>Comforting spiced tea</p><div class="price">₹45</div></div></article>
+        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=700&q=85" alt="Ginger tea"><div class="menu-copy"><h3>Ginger Tea</h3><p>Warming ginger infusion</p><div class="price">₹55</div></div></article>
+        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=85" alt="Special tea in a cup"><div class="menu-copy"><h3>Signature Brew</h3><p>House special blend</p><div class="price">₹65</div></div></article>
+        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=85" alt="Fresh coffee"><div class="menu-copy"><h3>Morning Coffee</h3><p>Freshly brewed coffee</p><div class="price">₹70</div></div></article>
+        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=85" alt="Indian snacks"><div class="menu-copy"><h3>Samosa</h3><p>Crispy snack</p><div class="price">₹30</div></div></article>
+        <article class="menu-card"><img loading="lazy" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=85" alt="Chocolate milkshake"><div class="menu-copy"><h3>Chocolate Shake</h3><p>Rich & creamy</p><div class="price">₹95</div></div></article>
       </div>
     </div>
   </section>
 
   <section class="about" id="about">
     <div class="about-grid">
-      <img class="about-photo" loading="lazy" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=85" alt="Warm and welcoming cafe interior">
+      <img class="about-photo" loading="lazy" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=85" alt="Warm and welcoming bamboo hut cafe interior">
       <div class="about-copy">
         <div class="eyebrow">— About Us —</div>
         <h2>More Than <span>Just Tea</span></h2>
-        <p>Cafe Teaniru is a cozy cafe inspired by the love for great tea, simple food and meaningful conversations.</p>
-        <p>We bring people together over freshly prepared tea, delicious snacks and a relaxed atmosphere. Whether it’s a quick tea break or a long catch-up with friends, we want every visit to feel special.</p>
-        <p><strong>First outlet: Kosgi · Owner: Ashok</strong></p>
+        <p>Cafe Teaniru is a cozy bamboo-hut inspired cafe crafted around the love for great tea, simple food and meaningful conversations.</p>
+        <p>We bring people together over freshly prepared tea, delicious snacks and a relaxed bamboo-hut ambience. Whether it’s a quick tea break or a long catch-up with friends, we want every visit to feel special and authentic.</p>
+        <p><strong>First outlet: Kosgi · Owner: Kishore Nanda</strong></p>
         <div class="values">
           <div><div class="value-icon">☕</div><b>Quality Tea<br>&amp; Snacks</b></div>
-          <div><div class="value-icon">♧</div><b>Freshly<br>Prepared</b></div>
-          <div><div class="value-icon">♧</div><b>A Place for<br>Everyone</b></div>
+          <div><div class="value-icon">♧</div><b>Handcrafted<br>Decor</b></div>
+          <div><div class="value-icon">♧</div><b>Small Hut<br>Model Cafe</b></div>
           <div><div class="value-icon">♥</div><b>Good Chats<br>Always</b></div>
         </div>
       </div>
@@ -151,13 +152,13 @@
 
   <section id="cafe">
     <div class="wrap">
-      <div class="section-head"><div class="eyebrow">— Visit Us —</div><h2>Our Wooden Hut Cafe</h2><p>A relaxed place for your everyday tea break.</p></div>
+      <div class="section-head"><div class="eyebrow">— Visit Us —</div><h2>Our Bamboo Hut Cafe</h2><p>A relaxed place for your everyday tea break.</p></div>
       <div class="gallery-grid" id="gallery">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85" alt="Cafe counter and seating">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=900&q=85" alt="Cafe seating area">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=85" alt="Cafe ambience">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85" alt="Cafe counter and bamboo seating">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=900&q=85" alt="Cafe seating area with bamboo decor">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=85" alt="Cozy bamboo hut ambience">
       </div>
-      <p style="text-align:center;color:#746650;font-size:12px;margin-top:14px">Photos are illustrative. Replace them with photos of your actual Cafe Teaniru wooden hut for the most authentic look.</p>
+      <p style="text-align:center;color:#546b56;font-size:12px;margin-top:14px">Photos are illustrative. Replace them with photos of your actual Cafe Teaniru bamboo hut for the most authentic look.</p>
     </div>
   </section>
 
@@ -166,7 +167,7 @@
       <div class="visit-copy">
         <div class="eyebrow">— Visit Us —</div>
         <h2>Our First Outlet Is <span class="gold">Open!</span></h2>
-        <p>Come experience the warm vibes of Cafe Teaniru in Kosgi. Great tea, tasty snacks and a cozy ambience await you.</p>
+        <p>Come experience the warm bamboo-hut vibes of Cafe Teaniru in Kosgi. Great tea, tasty snacks and a cozy ambience await you.</p>
         <a class="pill" href="https://www.google.com/maps" target="_blank" rel="noopener">⌖ Get Directions</a>
         <a class="outline" style="color:#0b0b0b;border-color:#0b0b0b" href="tel:+919515784370">☎ Call Cafe</a>
       </div>
@@ -175,6 +176,7 @@
         <div class="detail-row"><div class="detail-icon">⌖</div><div><b>Our Location</b><span>Kosgi Branch<br>Kosgi, Telangana</span></div></div>
         <div class="detail-row"><div class="detail-icon">◷</div><div><b>Opening Hours</b><span>10:00 AM – 10:30 PM</span></div></div>
         <div class="detail-row"><div class="detail-icon">☎</div><div><b>Call / WhatsApp</b><span>9515784370</span></div></div>
+        <div class="detail-row"><div class="detail-icon">✦</div><div><b>Franchise Enquiries</b><span>Phone: 9573907379 · WhatsApp: <a href="https://wa.me/9182168125" target="_blank" rel="noopener">+91 82168 125</a></span></div></div>
         <a class="map-link" href="https://www.google.com/maps" target="_blank" rel="noopener">Open Google Maps ↗</a>
       </div>
     </div>
@@ -184,14 +186,14 @@
 <footer>
   <div class="wrap">
     <div class="footer-inner">
-      <a class="brand" href="#home">☕ CAFE <span class="gold">TEANIRU</span><small>TEA • SNACKS • GOOD VIBES</small></a>
+      <a class="brand" href="#home">☕ CAFE <span class="gold">TEANIRU</span><small>BAMBOO HUT · SMALL HUT MODEL CAFE</small></a>
       <div class="tagline">Good Tea, Good People,<br>Great Conversations.</div>
       <div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#menu">Menu</a><a href="#cafe">Our Cafe</a><a href="#visit">Contact</a></div>
     </div>
-    <div class="copyright">First outlet: Kosgi · Owner: Ashok · © 2026 Cafe Teaniru. All rights reserved.</div>
+    <div class="copyright">First outlet: Kosgi · Owner: Kishore Nanda · Franchise: 9573907379 · WhatsApp: 9182168125 · © 2026 Cafe Teaniru. All rights reserved.</div>
   </div>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919515784370" target="_blank" rel="noopener" aria-label="Chat with Cafe Teaniru on WhatsApp">☏ Chat on WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/9182168125" target="_blank" rel="noopener" aria-label="Chat with Cafe Teaniru on WhatsApp">☏ Chat on WhatsApp</a>
 </body>
 </html>
