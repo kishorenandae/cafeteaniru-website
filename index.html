@@ -1,302 +1,987 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Café Teaniru | Tea, Coffee & Good Mood</title>
-<style>
-:root{
-  --dark:#160b05;
-  --dark2:#251207;
-  --gold:#c58a3a;
-  --gold-soft:#f0c17e;
-  --cream:#f8f2e8;
-  --text:#2f2118;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--cream);
-  color:var(--text);
-  line-height:1.6;
-}
-nav{
-  height:88px;
-  background:rgba(22,11,5,.98);
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 6%;
-  position:sticky;
-  top:0;
-  z-index:10;
-  border-bottom:1px solid rgba(197,138,58,.3);
-}
-.logo{
-  font-family:Georgia,serif;
-  letter-spacing:4px;
-  font-size:30px;
-  font-weight:bold;
-}
-.logo small{
-  display:block;
-  color:var(--gold);
-  font-size:11px;
-  letter-spacing:7px;
-  text-align:center;
-}
-.logo span{color:#fff}
-.nav-links{display:flex;gap:30px;list-style:none}
-.nav-links a{color:#eee;text-decoration:none;font-weight:bold;font-size:14px;letter-spacing:1px}
-.nav-links a:hover{color:var(--gold)}
-.visit-btn,.btn{
-  display:inline-block;
-  padding:13px 25px;
-  border-radius:7px;
-  text-decoration:none;
-  font-weight:bold;
-  letter-spacing:.5px;
-}
-.visit-btn,.btn.gold{background:var(--gold);color:#fff}
-.btn.outline{border:1px solid white;color:white;margin-left:10px}
-.hero{
-  min-height:640px;
-  display:flex;
-  align-items:center;
-  padding:70px 7%;
-  color:white;
-  background:
-    linear-gradient(90deg,rgba(10,5,2,.82) 0%,rgba(20,10,4,.64) 42%,rgba(20,10,4,.22) 100%),
-    url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1800&q=85");
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-  position:relative;
-  overflow:hidden;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 18% 20%, rgba(255,187,78,.18), transparent 20%),
-             linear-gradient(180deg, transparent 0%, rgba(0,0,0,.18) 100%);
-}
-.hero-content{max-width:610px; position:relative; z-index:1}
-.welcome{color:var(--gold);font-family:cursive;font-size:35px}
-.hero h1{font-family:Georgia,serif;font-size:76px;line-height:1.05;margin:8px 0 20px}
-.hero p{font-size:22px;max-width:500px;margin-bottom:25px}
-.tagline{color:#e3b878;font-weight:bold;letter-spacing:2px;margin:25px 0}
-.founder{
-  display:flex;align-items:center;justify-content:center;gap:35px;
-  padding:25px 7%;background:white;font-size:18px;
-}
-.founder strong{color:#6e421a}
-.founder-badge{border-left:1px solid #d7c6af;padding-left:40px;text-align:center}
-.founder-badge b{font-family:cursive;font-size:32px;font-weight:normal}
-section{padding:70px 7%}
-.section-title{text-align:center;margin-bottom:35px}
-.section-title small{color:var(--gold);font-weight:bold;letter-spacing:2px}
-.section-title h2{font-family:Georgia,serif;font-size:42px;margin-top:5px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{
-  position:relative;height:250px;border-radius:10px;overflow:hidden;
-  box-shadow:0 8px 20px rgba(0,0,0,.15);
-  background:#fff;
-}
-.card img{width:100%;height:100%;object-fit:cover;transition:.4s}
-.card:hover img{transform:scale(1.08)}
-.card span{
-  position:absolute;bottom:0;left:0;right:0;padding:14px;color:white;
-  text-align:center;font-weight:bold;letter-spacing:1px;
-  background:linear-gradient(transparent,rgba(0,0,0,.9));
-}
-.special{background:#fffdf9}
-.features{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;text-align:center}
-.feature{padding:20px 10px;border-right:1px solid #e4d7c6}
-.feature:last-child{border-right:0}
-.icon{font-size:38px;color:var(--gold);margin-bottom:8px}
-.feature h3{font-size:17px}
-.hut-section{
-  background:#2a1508;color:white;
-}
-.hut-wrap{
-  display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;
-}
-.hut-wrap h2{font-family:Georgia,serif;font-size:45px;color:#f4d5a3}
-.hut-wrap p{font-size:18px;margin:18px 0}
-.hut-gallery{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.hut-gallery img{
-  width:100%;height:210px;object-fit:cover;border-radius:10px;
-  box-shadow:0 8px 25px rgba(0,0,0,.3);
-}
-.hut-gallery img:first-child{grid-column:span 2;height:270px}
-.contact{
-  display:grid;grid-template-columns:1fr 1fr;gap:30px;
-  background:linear-gradient(rgba(15,7,2,.72),rgba(15,7,2,.82)),
-  url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1600&q=80");
-  background-size:cover;background-position:center;color:white;
-}
-.contact h2{font-family:Georgia,serif;font-size:40px;color:#f0c17e}
-.contact p{margin:10px 0}
-.franchise{
-  background:#fffdf9;
-  color:var(--text);
-}
-.franchise .features{grid-template-columns:repeat(2,1fr);gap:20px;text-align:left}
-.franchise .feature{border-right:1px solid #e4d7c6;padding:20px}
-.franchise .feature:last-child{border-right:0}
-.whatsapp-float {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  width: 62px;
-  height: 62px;
-  border-radius: 50%;
-  background: #25d366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,.25);
-  z-index: 99;
-  transition:.25s ease;
-}
-.whatsapp-float:hover {transform: scale(1.04)}
-.whatsapp-float img {width: 30px; height: 30px}
-footer{background:#120904;color:#cdbda9;text-align:center;padding:22px}
-@media(max-width:1000px){
-  .grid4{grid-template-columns:repeat(2,1fr)}
-  .features{grid-template-columns:repeat(2,1fr)}
-  .feature{border:0}
-  .hut-wrap,.contact{grid-template-columns:1fr}
-}
-@media(max-width:700px){
-  nav{height:auto;padding:15px;flex-wrap:wrap;gap:15px}
-  .nav-links{display:none}
-  .hero h1{font-size:54px}
-  .hero{min-height:620px}
-  .grid4{grid-template-columns:1fr}
-  .founder{flex-direction:column;gap:12px;text-align:center}
-  .founder-badge{border-left:0;border-top:1px solid #d7c6af;padding:12px 0 0}
-  .hut-gallery{grid-template-columns:1fr}
-  .hut-gallery img:first-child{grid-column:auto}
-  .franchise .features{grid-template-columns:1fr}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Teaniru | Wood Café & Tea Lounge</title>
+  <style>
+    :root {
+      --wood-900: #1a0d06;
+      --wood-800: #2b170d;
+      --wood-700: #4a2914;
+      --wood-600: #7a4a2d;
+      --wood-500: #b67a57;
+      --gold: #d7a562;
+      --gold-soft: #f4d7a1;
+      --cream: #f6efe7;
+      --paper: #fffaf3;
+      --dark: #17110d;
+      --text: #2b1d12;
+      --muted: #69584c;
+      --line: rgba(81,49,28,.18);
+      --shadow: 0 18px 35px rgba(32, 17, 10, 0.18);
+      --success: #25d366;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #f3eadf 0%, #f9f3eb 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; }
+    img { display: block; width: 100%; }
+
+    .container {
+      width: min(1200px, 90%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: rgba(18, 10, 7, 0.96);
+      color: #fff;
+      border-bottom: 1px solid rgba(215, 165, 98, 0.35);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(4px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 86px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 170px;
+    }
+
+    .brand small {
+      letter-spacing: 7px;
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .brand strong {
+      font-family: Georgia, serif;
+      letter-spacing: 2px;
+      font-size: 2.15rem;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #efe5d8;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold) 0%, #b77e41 100%);
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 18px rgba(183,126,65,.22);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(16, 9, 7, 0.82) 0%, rgba(16, 9, 7, 0.62) 38%, rgba(16, 9, 7, 0.18) 100%),
+        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85') center/cover no-repeat;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 17% 30%, rgba(255,196,103,.28), transparent 22%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, 90%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: end;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      padding: 60px 0 80px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold-soft);
+      font-weight: 700;
+      letter-spacing: 5px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(3.2rem, 7vw, 6rem);
+      line-height: 0.98;
+      margin: 18px 0 16px;
+      letter-spacing: -2px;
+    }
+
+    .hero-copy p {
+      max-width: 540px;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 26px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: .2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--gold) 0%, #ba7d40 100%);
+      color: #fff;
+      box-shadow: 0 12px 18px rgba(180,111,41,.22);
+    }
+
+    .btn.secondary {
+      border: 1px solid rgba(255,255,255,0.8);
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-card {
+      background: rgba(19, 11, 8, 0.48);
+      border: 1px solid rgba(219, 179, 112, 0.28);
+      border-radius: 22px;
+      backdrop-filter: blur(6px);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 24px;
+      max-width: 420px;
+      justify-self: end;
+    }
+
+    .hero-card .title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--gold-soft);
+      margin-bottom: 12px;
+    }
+
+    .hero-card .price {
+      font-family: Georgia, serif;
+      font-size: 2.8rem;
+      color: #fff;
+      margin: 8px 0 10px;
+    }
+
+    .hero-card p {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.98rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--gold-soft);
+      line-height: 1;
+    }
+
+    .stat span {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: rgba(255,255,255,0.74);
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-head .kicker {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.74rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-head h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: var(--wood-800);
+      margin-bottom: 8px;
+    }
+
+    .section-head p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .story-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .story-photo {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 460px;
+      background:
+        linear-gradient(180deg, rgba(21,10,7,.08), rgba(21,10,7,.2)),
+        url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=85') center/cover no-repeat;
+    }
+
+    .story-badge {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      background: rgba(18, 10, 7, 0.82);
+      color: #fff;
+      border: 1px solid rgba(215,165,98,0.28);
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: 0 12px 25px rgba(0,0,0,.2);
+    }
+
+    .story-badge strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      color: var(--gold-soft);
+      margin-bottom: 2px;
+    }
+
+    .story-copy {
+      padding: 16px 0;
+    }
+
+    .story-copy p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .small-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .small-feature .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f7d9a4, #e2b66d);
+      font-size: 1.2rem;
+    }
+
+    .menu-band {
+      background: linear-gradient(180deg, #f2e4d4 0%, #fbf8f3 100%);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .menu-card {
+      background: rgba(255,255,255,0.66);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 14px 24px rgba(72,42,21,0.08);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 28px rgba(72,42,21,0.12);
+    }
+
+    .menu-card img {
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .menu-card .body {
+      padding: 18px 18px 20px;
+    }
+
+    .menu-card .body h3 {
+      font-size: 1.28rem;
+      color: var(--wood-800);
+      margin-bottom: 8px;
+    }
+
+    .menu-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .menu-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      border-bottom: 1px dashed rgba(96,67,52,.18);
+      padding-bottom: 6px;
+    }
+
+    .menu-list li:last-child { border-bottom: none; }
+
+    .price {
+      color: var(--wood-700);
+      font-weight: 800;
+    }
+
+    .specials {
+      background: linear-gradient(180deg, #fffaf6 0%, #f5efe8 100%);
+    }
+
+    .special-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .special-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 12px 20px rgba(63,38,22,0.05);
+    }
+
+    .special-box .icon {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f7d9a4, #dca259);
+      font-size: 1.9rem;
+      margin-bottom: 18px;
+    }
+
+    .special-box h3 {
+      font-size: 1.4rem;
+      color: var(--wood-800);
+      margin-bottom: 10px;
+    }
+
+    .special-box p {
+      color: var(--muted);
+    }
+
+    .experience {
+      background: linear-gradient(180deg, #1e120c 0%, #2c190f 100%);
+      color: #fff;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .experience-copy h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.2rem, 4vw, 3.3rem);
+      color: #f5d8a6;
+      margin: 12px 0 18px;
+    }
+
+    .experience-copy p {
+      color: rgba(255,255,255,0.74);
+      font-size: 1.06rem;
+      margin-bottom: 24px;
+    }
+
+    .experience-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .point {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(217, 175, 104, 0.2);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .point strong {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .experience-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .experience-gallery img {
+      border-radius: 22px;
+      height: 220px;
+      object-fit: cover;
+      box-shadow: 0 14px 22px rgba(0,0,0,.18);
+    }
+
+    .experience-gallery img:first-child {
+      grid-column: span 2;
+      height: 280px;
+    }
+
+    .visit {
+      background: linear-gradient(180deg, #f7efe5 0%, #f4eae0 100%);
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .visit-box {
+      background: linear-gradient(180deg, rgba(33,19,14,.95), rgba(16,10,7,.96));
+      color: #fff;
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(215,165,98,.2);
+    }
+
+    .visit-box h3 {
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      color: var(--gold-soft);
+      margin-bottom: 10px;
+    }
+
+    .visit-box p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.06rem;
+      margin-bottom: 10px;
+    }
+
+    .visit-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .visit-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .visit-list .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(215,165,98,0.15);
+    }
+
+    .hours-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hours-card h3 {
+      font-size: 1.9rem;
+      color: var(--wood-800);
+      margin-bottom: 20px;
+    }
+
+    .hours {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .hours li {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px dashed rgba(77,52,39,.18);
+      padding-bottom: 8px;
+    }
+
+    .hours li:last-child { border-bottom: none; }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #35d866 0%, #1fb853 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 28px rgba(37,211,102,.34);
+      z-index: 99;
+      transition: transform .2s ease;
+    }
+
+    .whatsapp-float:hover { transform: scale(1.05); }
+    .whatsapp-float img { width: 30px; height: 30px; }
+
+    footer {
+      background: #120904;
+      color: #d8c7b8;
+      text-align: center;
+      padding: 22px 18px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .story-wrap,
+      .experience-grid,
+      .visit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        justify-self: start;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .special-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 620px;
+      }
+
+      .stats,
+      .feature-list,
+      .special-grid,
+      .menu-grid,
+      .experience-points,
+      .visit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-card img {
+        height: 220px;
+      }
+
+      h1 {
+        font-size: 3.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo"><small>CAFÉ</small><span>TEANIRU</span></div>
-  <ul class="nav-links">
-    <li><a href="#home">HOME</a></li>
-    <li><a href="#about">ABOUT</a></li>
-    <li><a href="#menu">MENU</a></li>
-    <li><a href="#hut">HUT CAFÉ</a></li>
-    <li><a href="#contact">CONTACT</a></li>
-  </ul>
-  <a class="visit-btn" href="https://wa.me/919182168125?text=Hello%20Caf%C3%A9%20Teaniru%2C%20I%20want%20to%20enquire." target="_blank" rel="noopener">VISIT US</a>
-</nav>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <small>CAFÉ</small>
+        <strong>TEANIRU</strong>
+      </div>
 
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="welcome">Welcome to</div>
-    <h1>Café Teaniru</h1>
-    <p>A perfect blend of Tea, Coffee, Good Food and unforgettable conversations.</p>
-    <div class="tagline">GOOD TEA • GOOD FOOD • GOOD MOOD</div>
-    <a class="btn gold" href="#menu">EXPLORE MENU</a>
-    <a class="btn outline" href="#about">OUR STORY</a>
-  </div>
-</section>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
-<div class="founder" id="about">
-  <div>☕ Founded with passion and love by <strong>Kishore</strong> to bring people together over great tea, coffee and unforgettable moments.</div>
-  <div class="founder-badge"><b>Kishore</b><br><small>FOUNDER</small></div>
-</div>
-
-<section id="menu">
-  <div class="section-title">
-    <small>OUR MENU HIGHLIGHTS</small>
-    <h2>Freshly Made for You</h2>
-  </div>
-  <div class="grid4">
-    <div class="card"><img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80" alt="Desi chai in mud cup"><span>DESI CHAI • MUD CUP</span></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Coffee in ceramic cup"><span>COFFEE • CERAMIC CUP</span></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" alt="Tea"><span>REFRESHING TEAS</span></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80" alt="Coffee"><span>PREMIUM COFFEES</span></div>
-  </div>
-</section>
-
-<section class="special">
-  <div class="section-title"><small>OUR SPECIALITY</small><h2>More Than Just a Café</h2></div>
-  <div class="features">
-    <div class="feature"><div class="icon">☕</div><h3>Finest Beverages</h3><p>Handpicked tea leaves and premium coffee beans.</p></div>
-    <div class="feature"><div class="icon">🍔</div><h3>Delicious Food</h3><p>Tasty snacks and meals to satisfy your cravings.</p></div>
-    <div class="feature"><div class="icon">🏡</div><h3>Cozy Ambience</h3><p>A warm and relaxing space to unwind and enjoy.</p></div>
-    <div class="feature"><div class="icon">🎵</div><h3>Events & Music</h3><p>Live music, workshops and memorable evenings.</p></div>
-    <div class="feature"><div class="icon">❤️</div><h3>Community First</h3><p>A place to connect, share and create memories.</p></div>
-  </div>
-</section>
-
-<section class="hut-section" id="hut">
-  <div class="hut-wrap">
-    <div>
-      <small style="color:#c58a3a;font-weight:bold;letter-spacing:2px">SPECIAL EXPERIENCE</small>
-      <h2>Our Cozy Hut Model Café</h2>
-      <p>Enjoy your favorite chai and coffee in a beautiful hut-style café atmosphere surrounded by natural warmth, wood textures and relaxing spaces.</p>
-      <p>Perfect for friends, families, couples and peaceful work sessions.</p>
-      <a class="btn gold" href="https://wa.me/919182168125?text=Hello%20Caf%C3%A9%20Teaniru%2C%20I%20want%20to%20plan%20my%20visit." target="_blank" rel="noopener">PLAN YOUR VISIT</a>
+      <a class="nav-cta" href="https://wa.me/919182168125?text=Hello%20Caf%C3%A9%20Teaniru%2C%20I%20want%20to%20enquire." target="_blank" rel="noopener">Visit Us</a>
     </div>
-    <div class="hut-gallery">
-      <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=85" alt="Cozy cafe interior">
-      <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Cafe seating">
-      <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="Cafe ambience">
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Tea • Coffee • Good Vibes</span>
+        <h1>Café Teaniru</h1>
+        <p>Wooden warmth, soulful brews, fresh snacks, and a calm café atmosphere where every cup feels like a moment to slow down.</p>
+
+        <div class="cta-row">
+          <a href="#menu" class="btn primary">Explore Menu</a>
+          <a href="#about" class="btn secondary">Our Story</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>25+</strong>
+            <span>Signature brews</span>
+          </div>
+          <div class="stat">
+            <strong>7AM</strong>
+            <span>Warm opening</span>
+          </div>
+          <div class="stat">
+            <strong>4.9★</strong>
+            <span>Guest love</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="title">Today’s Favorite</div>
+        <div class="price">₹119</div>
+        <p>Masala Chai + Bun Maska combo, served fresh in a warm wooden café setting.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="contact" id="contact">
-  <div>
-    <h2>Visit Café Teaniru</h2>
-    <p>📍 Hyderabad, Telangana</p>
-    <p>📞 +91 9182168125</p>
-    <p>✉ hello@cafeteaniru.com</p>
-  </div>
-  <div>
-    <h2>Opening Hours</h2>
-    <p>☀️ Every Day</p>
-    <p>🕘 9:00 AM – 10:00 PM</p>
-    <p>Tea • Coffee • Food • Friends ❤️</p>
-  </div>
-</section>
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">About Us</span>
+        <h2>Built for chai lovers and coffee moments</h2>
+        <p>Café Teaniru brings together authentic flavors, cozy interiors, and a welcoming community vibe inspired by traditional Indian tea houses and modern café culture.</p>
+      </div>
 
-<section class="franchise" id="franchise">
-  <div class="section-title">
-    <small>FRANCHISE</small>
-    <h2>Franchise & Branch Details</h2>
-  </div>
-  <div class="features">
-    <div class="feature">
-      <h3>Kishore Nanda</h3>
-      <p>Franchise Inquiries</p>
-      <p>📞 9182168125</p>
+      <div class="story-wrap">
+        <div class="story-photo">
+          <div class="story-badge">
+            <strong>Since 2026</strong>
+            <span>Fresh tea, coffee & comfort</span>
+          </div>
+        </div>
+
+        <div class="story-copy">
+          <p>Founded with love by Kishore, Café Teaniru was created to be more than a café—it’s a place for conversations, quiet work sessions, family hangouts, and memorable evenings over hot chai and handcrafted coffee.</p>
+          <p>From earthy kulhad chai to rich filter coffee and comforting snacks, every item reflects warmth, hospitality, and quality.</p>
+
+          <div class="feature-list">
+            <div class="small-feature">
+              <div class="icon">☕</div>
+              <div>
+                <strong>Fresh brews</strong>
+              </div>
+            </div>
+            <div class="small-feature">
+              <div class="icon">🍲</div>
+              <div>
+                <strong>Comfort food</strong>
+              </div>
+            </div>
+            <div class="small-feature">
+              <div class="icon">🏡</div>
+              <div>
+                <strong>Cozy ambience</strong>
+              </div>
+            </div>
+            <div class="small-feature">
+              <div class="icon">🎶</div>
+              <div>
+                <strong>Good vibes</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="feature">
-      <h3>Kosgi Outlet : Ashok</h3>
-      <p>📍 Kosgi</p>
-      <p>📞 9515784370</p>
+  </section>
+
+  <section class="menu-band" id="menu">
+    <div class="container section">
+      <div class="section-head">
+        <span class="kicker">Signature Menu</span>
+        <h2>Tea, coffee & small bites</h2>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80" alt="Desi chai in mud cup">
+          <div class="body">
+            <h3>Chai Specials</h3>
+            <ul class="menu-list">
+              <li><span>Masala Chai</span><span class="price">₹40</span></li>
+              <li><span>Elaichi Chai</span><span class="price">₹45</span></li>
+              <li><span>Kulhad Chai</span><span class="price">₹60</span></li>
+              <li><span>Ginger Chai</span><span class="price">₹50</span></li>
+              <li><span>Green Tea</span><span class="price">₹35</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Coffee in ceramic cup">
+          <div class="body">
+            <h3>Coffee Bar</h3>
+            <ul class="menu-list">
+              <li><span>Filter Coffee</span><span class="price">₹45</span></li>
+              <li><span>Espresso</span><span class="price">₹70</span></li>
+              <li><span>Cappuccino</span><span class="price">₹120</span></li>
+              <li><span>Cold Coffee</span><span class="price">₹110</span></li>
+              <li><span>Mocha</span><span class="price">₹160</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80" alt="Samosa and snacks">
+          <div class="body">
+            <h3>Snacks</h3>
+            <ul class="menu-list">
+              <li><span>Samosa</span><span class="price">₹30</span></li>
+              <li><span>Veg Puff</span><span class="price">₹35</span></li>
+              <li><span>Bun Maska</span><span class="price">₹55</span></li>
+              <li><span>French Fries</span><span class="price">₹90</span></li>
+              <li><span>Veg Sandwich</span><span class="price">₹120</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80" alt="Cafe breakfast platter">
+          <div class="body">
+            <h3>Comfort Combos</h3>
+            <ul class="menu-list">
+              <li><span>Tea + Samosa</span><span class="price">₹90</span></li>
+              <li><span>Coffee + Bun</span><span class="price">₹110</span></li>
+              <li><span>Snacks Platter</span><span class="price">₹180</span></li>
+              <li><span>Starter Combo</span><span class="price">₹220</span></li>
+              <li><span>Family Treat</span><span class="price">₹420</span></li>
+            </ul>
+          </div>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<a class="whatsapp-float" href="https://wa.me/919182168125?text=Hello%20Caf%C3%A9%20Teaniru%2C%20I%20want%20to%20enquire." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp logo">
-</a>
+  <section class="section specials">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Why People Visit</span>
+        <h2>Made for slow mornings and late evenings</h2>
+      </div>
 
-<footer>
-  © 2026 Café Teaniru. All Rights Reserved. | Founded by Kishore ❤️
-</footer>
+      <div class="special-grid">
+        <div class="special-box">
+          <div class="icon">☕</div>
+          <h3>Fresh Brew Every Time</h3>
+          <p>From strong filter coffee to rich masala chai, every cup is brewed with quality beans and authentic ingredients.</p>
+        </div>
+
+        <div class="special-box">
+          <div class="icon">🏡</div>
+          <h3>Wooden Café Vibes</h3>
+          <p>Warm wooden textures, cozy seating, soft lighting, and a calming atmosphere designed for relaxation.</p>
+        </div>
+
+        <div class="special-box">
+          <div class="icon">🍟</div>
+          <h3>Quick Small Bites</h3>
+          <p>Enjoy crispy fries, sandwiches, hot buns, samosas, and comfort snacks to pair perfectly with your beverage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section experience" id="experience">
+    <div class="container experience-grid">
+      <div class="experience-copy">
+        <span class="eyebrow">The Experience</span>
+        <h2>Wooden charm, warm lights & a vibrant café soul</h2>
+        <p>Experience a boutique café design inspired by rustic Indian tea stalls and premium modern lounges. Our space is made for friends, family, work sessions, and evenings that turn into memories.</p>
+
+        <div class="experience-points">
+          <div class="point">
+            <strong>Cozy corners</strong>
+            <span>Perfect for relaxing conversations</span>
+          </div>
+          <div class="point">
+            <strong>Quick service</strong>
+            <span>Fresh food and drinks without delay</span>
+          </div>
+          <div class="point">
+            <strong>Evening mood</strong>
+            <span>Warm lights and calm energy</span>
+          </div>
+          <div class="point">
+            <strong>Family favorite</strong>
+            <span>Comfortable for all ages</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-gallery">
+        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=85" alt="Wooden cafe interior">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Cafe seating">
+        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="Tea and coffee ambience">
+      </div>
+    </div>
+  </section>
+
+  <section class="section visit" id="contact">
+    <div class="container visit-grid">
+      <div class="visit-box">
+        <span class="eyebrow">Visit Café Teaniru</span>
+        <h3>Bring your chai cravings to life</h3>
+        <p>📍 Hyderabad, Telangana</p>
+        <p>📞 +91 9182168125</p>
+        <p>✉ hello@cafeteaniru.com</p>
+
+        <ul class="visit-list">
+          <li><span class="dot"></span> Fresh chai and coffee throughout the day</li>
+          <li><span class="dot"></span> Perfect for work, meetups, and casual hangs</li>
+          <li><span class="dot"></span> Comfortable wooden café ambiance you’ll love</li>
+        </ul>
+      </div>
+
+      <div class="hours-card">
+        <h3>Opening Hours</h3>
+        <ul class="hours">
+          <li><span>Monday - Sunday</span><strong>9:00 AM – 10:00 PM</strong></li>
+          <li><span>Tea time</span><strong>All day</strong></li>
+          <li><span>Breakfast</span><strong>9:00 AM – 12:00 PM</strong></li>
+          <li><span>Coffee & snacks</span><strong>12:00 PM – 10:00 PM</strong></li>
+          <li><span>Franchise support</span><strong>Quick call assistance</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <a class="whatsapp-float" href="https://wa.me/919182168125?text=Hello%20Caf%C3%A9%20Teaniru%2C%20I%20want%20to%20enquire." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp logo">
+  </a>
+
+  <footer>
+    © 2026 Café Teaniru. All Rights Reserved. | Crafted with warmth by Kishore ❤️
+  </footer>
 
 </body>
 </html>
