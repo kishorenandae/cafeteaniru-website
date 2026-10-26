@@ -150,11 +150,73 @@ section{padding:70px 7%}
 .franchise .feature{border-right:1px solid #e4d7c6;padding:20px}
 .franchise .feature:last-child{border-right:0}
 .menu-photo-section{
-  background:radial-gradient(circle at top, #3a1c0f 0%, #150b07 48%, #0a0504 100%);
-  padding-top:40px;
-  padding-bottom:50px;
+  background:linear-gradient(180deg,#2b1309,#130a07 100%);
+  padding-top:60px;
+  padding-bottom:60px;
 }
-.menu-photo-section .section-title h2{color:#f7d39d}
+.menu-photo-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:22px;
+  max-width:1400px;
+  margin:0 auto;
+}
+.menu-photo-card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  min-height:360px;
+  box-shadow:0 18px 30px rgba(0,0,0,.25);
+  background:#fff;
+  border:2px solid rgba(214,157,68,.35);
+}
+.menu-photo-card img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:transform .45s ease;
+}
+.menu-photo-card:hover img{transform:scale(1.08)}
+.menu-photo-card .overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(13,9,7,0.08) 0%, rgba(13,9,7,0.82) 100%);
+}
+.menu-photo-card .caption{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding:18px 16px 14px;
+  z-index:2;
+}
+.menu-photo-card .caption h3{
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:.5px;
+  margin-bottom:6px;
+}
+.menu-photo-card .caption p{
+  color:#f4d29d;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.menu-photo-card .price-tag{
+  position:absolute;
+  top:16px; right:16px;
+  background:linear-gradient(135deg,#f0bd68,#d38d32);
+  color:#2a1208;
+  font-weight:900;
+  font-size:14px;
+  padding:8px 12px;
+  border-radius:999px;
+  z-index:2;
+  box-shadow:0 8px 16px rgba(0,0,0,.25);
+}
+.menu-photo-section .section-title h2{color:#f8d29f}
+.menu-photo-section .section-title small{color:#e9b867}
 .menu-board-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(0, 1fr));
@@ -238,14 +300,14 @@ footer{background:#120904;color:#cdbda9;text-align:center;padding:22px}
   .grid4{grid-template-columns:repeat(2,1fr)}
   .features{grid-template-columns:repeat(2,1fr)}
   .feature{border:0}
-  .hut-wrap,.contact,.menu-board-grid{grid-template-columns:1fr}
+  .hut-wrap,.contact,.menu-board-grid,.menu-photo-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:700px){
   nav{height:auto;padding:15px;flex-wrap:wrap;gap:15px}
   .nav-links{display:none}
   .hero h1{font-size:54px}
   .hero{min-height:620px}
-  .grid4{grid-template-columns:1fr}
+  .grid4,.menu-photo-grid,.menu-board-grid{grid-template-columns:1fr}
   .founder{flex-direction:column;gap:12px;text-align:center}
   .founder-badge{border-left:0;border-top:1px solid #d7c6af;padding:12px 0 0}
   .hut-gallery{grid-template-columns:1fr}
@@ -291,11 +353,87 @@ footer{background:#120904;color:#cdbda9;text-align:center;padding:22px}
     <small>OUR MENU HIGHLIGHTS</small>
     <h2>Freshly Made for You</h2>
   </div>
-  <div class="grid4">
-    <div class="card"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" alt="Tea"><span>REFRESHING TEAS</span></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80" alt="Coffee"><span>PREMIUM COFFEES</span></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80" alt="Mud tea cup"><span>MUD TEA CUP</span></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Coffee ceramic cup"><span>COFFEE CERAMIC CUP</span></div>
+
+  <div class="menu-photo-grid">
+    <article class="menu-photo-card">
+      <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80" alt="Masala tea" />
+      <span class="price-tag">₹25</span>
+      <div class="overlay"></div>
+      <div class="caption">
+        <h3>Classic Masala Chai</h3>
+        <p>Tea Special</p>
+      </div>
+    </article>
+
+    <article class="menu-photo-card">
+      <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=80" alt="Coffee" />
+      <span class="price-tag">₹30</span>
+      <div class="overlay"></div>
+      <div class="caption">
+        <h3>South Indian Filter Coffee</h3>
+        <p>Coffee</p>
+      </div>
+    </article>
+
+    <article class="menu-photo-card">
+      <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=900&q=80" alt="Tea in clay cup" />
+      <span class="price-tag">₹40</span>
+      <div class="overlay"></div>
+      <div class="caption">
+        <h3>Teaniru Smoky Chai</h3>
+        <p>Signature Blend</p>
+      </div>
+    </article>
+
+    <article class="menu-photo-card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80" alt="Iced coffee" />
+      <span class="price-tag">₹90</span>
+      <div class="overlay"></div>
+      <div class="caption">
+        <h3>Orange Mocha Float</h3>
+        <p>Iced Special</p>
+      </div>
+    </article>
+
+    <article class="menu-photo-card">
+      <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80" alt="Snacks" />
+      <span class="price-tag">₹70</span>
+      <div class="overlay"></div>
+      <div class="caption">
+        <h3>Ghee Podi Mini Idli</h3>
+        <p>Snacks</p>
+      </div>
+    </article>
+
+    <article class="menu-photo-card">
+      <img src="https://images.unsplash.com/photo-1604908554100-3507192323-1f7f4203d53d?auto=format&fit=crop&w=900&q=80" alt="Toast" />
+      <span class="price-tag">₹80</span>
+      <div class="overlay"></div>
+      <div class="caption">
+        <h3>Gongura Cheese Toast</h3>
+        <p>Quick Bites</p>
+      </div>
+    </article>
+
+    <article class="menu-photo-card">
+      <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80" alt="Café ambience" />
+      <span class="price-tag">₹55</span>
+      <div class="overlay"></div>
+      <div class="caption">
+        <h3>Herbal Tea</h3>
+        <p>Healthy Choice</p>
+      </div>
+    </article>
+
+    <article class="menu-photo-card">
+      <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=900&q=80" alt="Dessert snack" />
+      <span class="price-tag">₹40</span>
+      <div class="overlay"></div>
+      <div class="caption">
+        <h3>Millet Chai Cookies</h3>
+        <p>Sweet Treat</p>
+      </div>
+    </article>
   </div>
 </section>
 
