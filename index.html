@@ -12,6 +12,11 @@
   --gold-soft:#f0c17e;
   --cream:#f8f2e8;
   --text:#2f2118;
+  --wood:#2d1306;
+  --green:#2f7d2b;
+  --leaf:#6bbf59;
+  --board:#120b08;
+  --shadow:rgba(0,0,0,.22);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -144,6 +149,73 @@ section{padding:70px 7%}
 .franchise .features{grid-template-columns:repeat(2,1fr);gap:20px;text-align:left}
 .franchise .feature{border-right:1px solid #e4d7c6;padding:20px}
 .franchise .feature:last-child{border-right:0}
+.menu-photo-section{
+  background:radial-gradient(circle at top, #3a1c0f 0%, #150b07 48%, #0a0504 100%);
+  padding-top:40px;
+  padding-bottom:50px;
+}
+.menu-photo-section .section-title h2{color:#f7d39d}
+.menu-board-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:20px;
+  max-width:1400px;
+  margin:0 auto;
+}
+.menu-board{
+  background:linear-gradient(180deg,#2d1306,#150a06 35%,#100806 100%);
+  border:3px solid rgba(214,157,68,.8);
+  border-radius:22px;
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
+  overflow:hidden;
+}
+.board-top{
+  position:relative;
+  padding:18px 20px 10px;
+  background:linear-gradient(180deg, rgba(42,22,7,.8), rgba(18,11,7,.1));
+  border-bottom:2px solid rgba(200,145,61,.6);
+}
+.board-top::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 20% 55%, rgba(122,185,65,.25), transparent 18%),
+             radial-gradient(circle at 70% 25%, rgba(122,185,65,.18), transparent 15%);
+}
+.brand-wrap{position:relative; z-index:1; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; text-align:center}
+.brand-mark{font-size:48px; filter:drop-shadow(0 6px 10px rgba(0,0,0,.25));}
+.brand-text{font-family:Georgia,serif; font-size:clamp(26px,2vw,44px); font-weight:800; letter-spacing:1px; color:#f7d58f; line-height:1.1; text-shadow:0 4px 12px rgba(0,0,0,.3)}
+.brand-text span{display:block; font-size:clamp(18px,1.6vw,28px); color:#f0c17e; letter-spacing:2px; font-weight:bold; margin-top:4px}
+.board-meta{position:relative; z-index:1; display:flex; justify-content:center; gap:10px; flex-wrap:wrap; padding-top:10px; color:#f8d89b; font-size:12px; letter-spacing:2px; text-transform:uppercase; font-weight:bold}
+.board-body{padding:18px 16px 20px; background:linear-gradient(180deg, rgba(16,8,6,.18), rgba(10,7,6,.3));}
+.board-strip{display:flex; align-items:center; justify-content:center; background:linear-gradient(90deg,#3a8d2a,#568a2f); color:#fff; padding:10px 14px; border-radius:10px; margin:0 6px 16px; font-weight:900; letter-spacing:2px; font-size:clamp(18px,1.6vw,30px); text-transform:uppercase; box-shadow:inset 0 2px 0 rgba(255,255,255,.15), 0 8px 16px rgba(0,0,0,.25)}
+.board-grid{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px;}
+.menu-tile{
+  background:linear-gradient(180deg, rgba(17,12,10,.7), rgba(24,16,12,.85));
+  border:1px solid rgba(255,208,123,.2);
+  border-radius:12px;
+  padding:10px 8px 8px;
+  min-height:154px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
+}
+.menu-tile h4{
+  font-size:14px;
+  font-weight:800;
+  color:#f7d59f;
+  text-align:center;
+  margin-bottom:8px;
+}
+.menu-tile .item{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:4px; color:#fff}
+.menu-tile .name{font-size:12px; line-height:1.35; display:block; flex:1}
+.menu-tile .price{min-width:48px; text-align:right; font-size:13px; font-weight:800; color:#ffe8ad; background:#e5a54a; color:#1d0f09; padding:5px 7px; border-radius:999px; box-shadow:0 3px 8px rgba(0,0,0,.15)}
+.menu-tile.small{min-height:110px}
+.menu-section{margin-top:18px}
+.menu-section h5{font-size:15px; letter-spacing:1px; text-transform:uppercase; color:#f5d38d; margin:2px 0 10px; text-align:center; font-weight:900}
+.board-footer{display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; margin-top:18px; padding:10px 5px 0; border-top:1px solid rgba(255,191,79,.2)}
+.footer-badge{flex:1; text-align:center; background:rgba(255,255,255,.04); border:1px solid rgba(196,140,58,.35); border-radius:999px; padding:8px 10px; color:#fee7bf; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase}
 .whatsapp-float {
   position: fixed;
   right: 22px;
@@ -166,7 +238,7 @@ footer{background:#120904;color:#cdbda9;text-align:center;padding:22px}
   .grid4{grid-template-columns:repeat(2,1fr)}
   .features{grid-template-columns:repeat(2,1fr)}
   .feature{border:0}
-  .hut-wrap,.contact{grid-template-columns:1fr}
+  .hut-wrap,.contact,.menu-board-grid{grid-template-columns:1fr}
 }
 @media(max-width:700px){
   nav{height:auto;padding:15px;flex-wrap:wrap;gap:15px}
@@ -179,6 +251,8 @@ footer{background:#120904;color:#cdbda9;text-align:center;padding:22px}
   .hut-gallery{grid-template-columns:1fr}
   .hut-gallery img:first-child{grid-column:auto}
   .franchise .features{grid-template-columns:1fr}
+  .board-grid{grid-template-columns:1fr}
+  .menu-tile{min-height:120px}
 }
 </style>
 </head>
@@ -233,6 +307,183 @@ footer{background:#120904;color:#cdbda9;text-align:center;padding:22px}
     <div class="feature"><div class="icon">🏡</div><h3>Cozy Ambience</h3><p>A warm and relaxing space to unwind and enjoy.</p></div>
     <div class="feature"><div class="icon">🎵</div><h3>Events & Music</h3><p>Live music, workshops and memorable evenings.</p></div>
     <div class="feature"><div class="icon">❤️</div><h3>Community First</h3><p>A place to connect, share and create memories.</p></div>
+  </div>
+</section>
+
+<section class="menu-photo-section" id="menu-boards">
+  <div class="section-title">
+    <small>MENU BOARDS</small>
+    <h2>Signature Selections</h2>
+  </div>
+
+  <div class="menu-board-grid">
+    <div class="menu-board">
+      <div class="board-top">
+        <div class="brand-wrap">
+          <div class="brand-mark">☕</div>
+          <div class="brand-text">Cafe<br>Teaniru<span>TEA • FOOD • FRIENDS • GOOD VIBES</span></div>
+        </div>
+        <div class="board-meta">
+          <span>Tea</span>
+          <span>•</span>
+          <span>Food</span>
+          <span>•</span>
+          <span>Friends</span>
+          <span>•</span>
+          <span>Good Vibes</span>
+        </div>
+      </div>
+
+      <div class="board-body">
+        <div class="board-strip">Chai &amp; Tea</div>
+        <div class="board-grid">
+          <div class="menu-tile">
+            <h4>Classic Masala Chai</h4>
+            <div class="item"><span class="name">Traditional Indian spiced tea</span><span class="price">₹25</span></div>
+          </div>
+          <div class="menu-tile">
+            <h4>Bellam Ginger Chai</h4>
+            <div class="item"><span class="name">Jaggery, ginger &amp; special spices</span><span class="price">₹35</span></div>
+          </div>
+          <div class="menu-tile">
+            <h4>Teaniru Smoky Chai</h4>
+            <div class="item"><span class="name">Signature smoky flavour</span><span class="price">₹40</span></div>
+          </div>
+          <div class="menu-tile">
+            <h4>Royal Saffron Chai</h4>
+            <div class="item"><span class="name">Saffron, pistachio &amp; cardamom</span><span class="price">₹60</span></div>
+          </div>
+          <div class="menu-tile">
+            <h4>Rose Cardamom Chai</h4>
+            <div class="item"><span class="name">Fragrant rose &amp; cardamom</span><span class="price">₹45</span></div>
+          </div>
+          <div class="menu-tile">
+            <h4>Chocolate Masala Chai</h4>
+            <div class="item"><span class="name">Rich chocolate notes</span><span class="price">₹55</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h5>Special &amp; Iced Tea</h5>
+          <div class="board-grid">
+            <div class="menu-tile small">
+              <h4>Blue Moon Lemon Tea</h4>
+              <div class="item"><span class="name">Refreshing citrus flavour</span><span class="price">₹70</span></div>
+            </div>
+            <div class="menu-tile small">
+              <h4>Mango Chai Fizz</h4>
+              <div class="item"><span class="name">Mango &amp; tea sparkle</span><span class="price">₹79</span></div>
+            </div>
+            <div class="menu-tile small">
+              <h4>Coconut Cloud Chai</h4>
+              <div class="item"><span class="name">Chilled spiced tea</span><span class="price">₹70</span></div>
+            </div>
+            <div class="menu-tile small">
+              <h4>Forest Citrus Chai</h4>
+              <div class="item"><span class="name">Black tea with orange</span><span class="price">₹50</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-footer">
+          <div class="footer-badge">Pure Ingredients</div>
+          <div class="footer-badge">Eco Friendly</div>
+          <div class="footer-badge">Family Friendly</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-board">
+      <div class="board-top">
+        <div class="brand-wrap">
+          <div class="brand-mark">☕</div>
+          <div class="brand-text">Cafe<br>Teaniru<span>TEA • FOOD • FRIENDS • GOOD VIBES</span></div>
+        </div>
+        <div class="board-meta">
+          <span>Coffee</span>
+          <span>•</span>
+          <span>Snacks</span>
+          <span>•</span>
+          <span>Combo offers</span>
+        </div>
+      </div>
+
+      <div class="board-body">
+        <div class="board-strip">Coffee</div>
+        <div class="board-grid">
+          <div class="menu-tile">
+            <h4>South Indian Filter Coffee</h4>
+            <div class="item"><span class="name">Classic filter coffee</span><span class="price">₹30</span></div>
+          </div>
+          <div class="menu-tile">
+            <h4>Bellam Filter Coffee</h4>
+            <div class="item"><span class="name">Jaggery-inspired twist</span><span class="price">₹45</span></div>
+          </div>
+          <div class="menu-tile">
+            <h4>Cardamom Cloud Coffee</h4>
+            <div class="item"><span class="name">Creamy cardamom coffee</span><span class="price">₹75</span></div>
+          </div>
+          <div class="menu-tile">
+            <h4>Coconut Cold Brew</h4>
+            <div class="item"><span class="name">Cold brew with coconut milk</span><span class="price">₹80</span></div>
+          </div>
+          <div class="menu-tile">
+            <h4>Orange Mocha</h4>
+            <div class="item"><span class="name">Coffee, chocolate &amp; orange zest</span><span class="price">₹90</span></div>
+          </div>
+          <div class="menu-tile">
+            <h4>Deccan Coffee Float</h4>
+            <div class="item"><span class="name">Chilled coffee with ice cream</span><span class="price">₹99</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h5>Snacks &amp; Bites</h5>
+          <div class="board-grid">
+            <div class="menu-tile small">
+              <h4>Ghee Podi Mini Idli</h4>
+              <div class="item"><span class="name">Soft mini idlis tossed in ghee &amp; podi</span><span class="price">₹70</span></div>
+            </div>
+            <div class="menu-tile small">
+              <h4>Gongura Cheese Toast</h4>
+              <div class="item"><span class="name">Andhra style Gongura &amp; cheese</span><span class="price">₹80</span></div>
+            </div>
+            <div class="menu-tile small">
+              <h4>Chilli Garlic Corn Cup</h4>
+              <div class="item"><span class="name">Sweet corn with chilli, garlic &amp; lime</span><span class="price">₹60</span></div>
+            </div>
+            <div class="menu-tile small">
+              <h4>Masala Peanut Crunch</h4>
+              <div class="item"><span class="name">Spicy peanuts with curry leaves</span><span class="price">₹35</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h5>Combo Offers</h5>
+          <div class="board-grid">
+            <div class="menu-tile small">
+              <h4>Chai + Bun Maska</h4>
+              <div class="item"><span class="name">Classic combo</span><span class="price">₹49</span></div>
+            </div>
+            <div class="menu-tile small">
+              <h4>Filter Coffee + Mini Idli</h4>
+              <div class="item"><span class="name">South Indian classic</span><span class="price">₹69</span></div>
+            </div>
+            <div class="menu-tile small">
+              <h4>Any Signature Drink + Snack</h4>
+              <div class="item"><span class="name">Best value combo</span><span class="price">₹99</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-footer">
+          <div class="footer-badge">Pure Ingredients</div>
+          <div class="footer-badge">Eco Friendly</div>
+          <div class="footer-badge">Peaceful Vibes</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
